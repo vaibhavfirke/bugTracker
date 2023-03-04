@@ -6,8 +6,8 @@ const authenticate=(req,res,next)=>{
     if(token){
         const decoded=jwt.verify(token,"bug");
         if (decoded) {
-            console.log(decoded)
-            let userId=decoded.UserID
+            // console.log(decoded)
+            let userId=decoded.UserId
             req.body.userID=userId
             next();
           } else {
