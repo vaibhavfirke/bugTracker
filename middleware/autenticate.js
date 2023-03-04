@@ -2,16 +2,17 @@
 
 const jwt=require('jsonwebtoken');
 const authenticate=(req,res,next)=>{
-    const token=req.headers.authorization;
+    const token=req.headers.autorization;
+    
     if(token){
         const decoded=jwt.verify(token,"bug");
         if (decoded) {
-            // console.log(decoded)
+            
             let userId=decoded.UserId
             req.body.userID=userId
             next();
           } else {
-            res.send("Login First");
+            res.send("Login First !");
           }
 
     }else{
